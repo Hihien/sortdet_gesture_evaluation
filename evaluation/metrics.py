@@ -1,7 +1,9 @@
 import numpy as np
 
+
 def _as_nparray(*args):
     return tuple(np.array(arg) for arg in args)
+
 
 def tube_accuracy(pred, gt):
     acc = 0.
@@ -12,6 +14,7 @@ def tube_accuracy(pred, gt):
         acc += accuracy(bbox_gt, bbox_pred)
     return acc / (max(pred['end'], gt['end']) - min(pred['start'], gt['start']) + 1)
 
+
 def f1_overlap(pred, gt):
     f1 = 0.
     for frame_id in range(max(pred['start'], gt['start']), min(pred['end'], gt['end']) + 1):
@@ -21,7 +24,8 @@ def f1_overlap(pred, gt):
         f1 += overlap_(bbox_gt, bbox_pred)
     return f1 / (max(pred['end'], gt['end']) - min(pred['start'], gt['start']) + 1)
 
-def temporal_IoU(pred, gt, eps = 1e-6):
+
+def temporal_IoU(pred, gt, eps=1e-6):
     frame_start = max(pred['start'], gt['start'])
     frame_end = min(pred['end'], gt['end'])
     overlap = max(frame_end - frame_start, 0)
@@ -29,6 +33,7 @@ def temporal_IoU(pred, gt, eps = 1e-6):
     union = max(union, eps)
     temporal_IoU = overlap / union
     return temporal_IoU
+
 
 # --------help_function--------
 def overlap_(bboxes1, bboxes2, eps=1e-6, threshold=0.3):
@@ -79,6 +84,7 @@ def overlap_(bboxes1, bboxes2, eps=1e-6, threshold=0.3):
     F1 = np.nan_to_num(F1)
 
     return F1
+
 
 def accuracy(bboxes1, bboxes2, eps=1e-6, iou_thres=0.3):
     bboxes1, bboxes2 = _as_nparray(bboxes1, bboxes2)

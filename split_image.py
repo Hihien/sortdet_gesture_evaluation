@@ -3,6 +3,7 @@ import cv2
 import shutil
 import pathlib
 
+
 def split_video(video_path):
     stream = cv2.VideoCapture(video_path)
 

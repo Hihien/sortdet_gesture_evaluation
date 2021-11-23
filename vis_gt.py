@@ -1,7 +1,6 @@
 import cv2
 import os
 import numpy as np
-import torch
 
 colours = np.random.randint(0, 256, (32, 3))
 data_dir = "D:/code/sort_xin/data"
@@ -16,7 +15,7 @@ for folder in folders:
     folder = os.path.join(data_dir, folder)
     data = []
     for line in lines:
-        dat = np.fromstring(line, dtype = int, sep = ' ')
+        dat = np.fromstring(line, dtype=int, sep=' ')
         data.append(dat)
 
     for image in os.listdir(folder):
@@ -37,7 +36,7 @@ for folder in folders:
                               (dat[3], dat[4]), (dat[5], dat[6]),
                               thickness=2,
                               color=colours[dat[-1].item() % len(colours), :].tolist())
-                dat[1] +=1
+                dat[1] += 1
 
             cv2.imshow(window_name, cv2.resize(img, None, fx=0.5, fy=0.5))
             key = cv2.waitKey(1)
