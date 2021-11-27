@@ -107,6 +107,7 @@ def main():
     print(stats[0].shape)
     if len(stats) and stats[0].any():
         p, r, ap, f1 = ap_per_class(*stats, plot=False, save_dir='.', names=classes)
+        print(ap.shape)
         ap50, ap75, ap = ap[:, 0], ap[:, 5], ap.mean(1)  # AP@0.5, AP@0.5:0.95
         mp, mr, mf1, map50, map75, map = p.mean(), r.mean(), f1.mean(), ap50.mean(), ap75.mean(), ap.mean()
         n_gts_per_class = np.bincount(stats[3].astype(np.int64), minlength=len(classes))  # number of gts per class

@@ -15,21 +15,25 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-import os
+from collections import namedtuple
 
-import torch
 import numpy as np
 from filterpy.kalman import KalmanFilter
 
+__all__ = ['Sort']
+
+_SortReturnType = namedtuple('_SortReturnType', ['dets', 'surpressed_inds', 'prediction_inds'])
 
 try:
     import lap
+
 
     def linear_assignment(cost_matrix):
         x, y = lap.lapjv(cost_matrix, extend_cost=True, return_cost=False)
         return np.array([[y[i], i] for i in x if i >= 0])
 except ImportError:
     from scipy.optimize import linear_sum_assignment
+
 
     def linear_assignment(cost_matrix):
         x, y = linear_sum_assignment(cost_matrix)
@@ -75,12 +79,13 @@ def convert_x_to_bbox(x, score=None):
     Takes a bounding box in the centre form [x,y,s,r] and returns it in the form
       [x1,y1,x2,y2] where x1,y1 is the top left and x2,y2 is the bottom right
     """
+    x = x.flatten()
     w = np.sqrt(x[2] * x[3])
     h = x[2] / w
     if score is None:
         return np.array([x[0] - w / 2., x[1] - h / 2., x[0] + w / 2., x[1] + h / 2.]).reshape((1, 4))
     else:
-        return np.array([x[0] - w / 2., x[1] - h / 2., x[0] + w / 2., x[1] + h / 2., score]).reshape((1, 5))
+        return np.array([x[0] - w / 2., x[1] - h / 2., x[0] + w / 2., x[1] + h / 2., score.item()]).reshape((1, 5))
 
 
 class KalmanBoxTracker(object):
@@ -89,7 +94,7 @@ class KalmanBoxTracker(object):
     """
     count = 0
 
-    def __init__(self, bbox):
+    def __init__(self, init_bbox=None, filter_score=False, update_with_prediction=False):
         """
         Initialises a tracker using initial bounding box.
         """
@@ -107,7 +112,21 @@ class KalmanBoxTracker(object):
         self.kf.Q[-1, -1] *= 0.01
         self.kf.Q[4:, 4:] *= 0.01
 
-        self.kf.x[:4] = convert_bbox_to_z(bbox)
+        # noisy confidence score model
+        self.score_kf = KalmanFilter(dim_x=1, dim_z=1)
+        self.score_kf.F = np.array([[1.]])
+        self.score_kf.H = np.array([[1.]])
+
+        # TODO: tune these parameters
+        self.score_kf.R[0, 0] *= 100. if filter_score else 1e-10
+        self.score_kf.P[0, 0] *= 1.
+        self.score_kf.Q[0, 0] *= 5. if filter_score else 1e10
+
+        if init_bbox is not None:
+            self.kf.x[:4] = convert_bbox_to_z(init_bbox)
+            self.score_kf.x[0, 0] = init_bbox[4]
+        self.update_with_prediction = update_with_prediction
+
         self.time_since_update = 0
         self.id = KalmanBoxTracker.count + 1  # TODO: count id from 0 or 1
         KalmanBoxTracker.count += 1
@@ -125,6 +144,15 @@ class KalmanBoxTracker(object):
         self.hits += 1
         self.hit_streak += 1
         self.kf.update(convert_bbox_to_z(bbox))
+        self.score_kf.update(bbox[4:5][np.newaxis])
+
+    def self_update(self):
+        """
+        Updates the state vector with self predictions.
+        """
+        if self.update_with_prediction:
+            self.kf.update(self.kf.x[:4])
+        self.score_kf.update(np.zeros_like(self.score_kf.x))
 
     def predict(self):
         """
@@ -133,70 +161,108 @@ class KalmanBoxTracker(object):
         if self.kf.x[6] + self.kf.x[2] <= 0:
             self.kf.x[6] *= 0.0
         self.kf.predict()
+
+        if self.score_kf.x[0] < 0:
+            self.score_kf.x[0] = 0.0
+        elif self.score_kf.x[0] > 1:
+            self.score_kf.x[0] = 1.0
+        self.score_kf.predict()
+
         self.age += 1
         if self.time_since_update > 0:
             self.hit_streak = 0
         self.time_since_update += 1
-        self.history.append(convert_x_to_bbox(self.kf.x))
+        self.history.append(convert_x_to_bbox(self.kf.x, self.score_kf.x))
         return self.history[-1]
 
-    def get_state(self):
-        """
-        Returns the current bounding box estimate.
-        """
+    @property
+    def bbox_state(self):
         return convert_x_to_bbox(self.kf.x)
+
+    @property
+    def score_state(self):
+        return self.score_kf.x
+
+    @property
+    def state(self):
+        return convert_x_to_bbox(self.kf.x, self.score_kf.x)
 
 
 class Sort(object):
-    def __init__(self, max_age=1, min_hits=3, iou_threshold=0.3):
+    def __init__(self,
+                 max_age=1,
+                 min_hits=3,
+                 iou_threshold=0.3,
+                 conf_threshold=0.1,
+                 filter_score=False,
+                 kalman_return_predictions=False,
+                 kalman_internal_update=False,
+                 ):
         """
         Sets key parameters for SORT
         """
         self.max_age = max_age
         self.min_hits = min_hits
         self.iou_threshold = iou_threshold
+        self.conf_threshold = conf_threshold
+        self.filter_score = filter_score
+        self.kalman_return_predictions = kalman_return_predictions
+        self.kalman_internal_update = kalman_internal_update
+
         self.trackers = []
         self.frame_count = 0
 
-    def update(self, dets=torch.empty((0, 5))):
+    def __call__(self, dets):
+        return self.update(dets)
+
+    def update(self, dets=np.empty((0, 5))):
         """
         Params:
           dets - a numpy array of detections in the format [[x1,y1,x2,y2,score],[x1,y1,x2,y2,score],...]
-        Requires: this method must be called once for each frame even with empty detections (use np.empty((0, 5)) for frames without detections).
+        Requires: this method must be called once for each frame even with empty detections (use np.empty((0, 5)) for
+          frames without detections).
         Returns the a similar array, where the last column is the object ID.
 
         NOTE: The number of objects returned may differ from the number of detections provided.
         """
         self.frame_count += 1
         # get predicted locations from existing trackers.
-        trks = np.zeros((len(self.trackers), 5))
+        trks = np.zeros((len(self.trackers), 6))
         to_del = []
-        for t, trk in enumerate(trks):
-            pos = self.trackers[t].predict()[0]
-            trk[:] = [pos[0], pos[1], pos[2], pos[3], 0]
+        for j, trk in enumerate(trks):
+            pos = self.trackers[j].predict().flatten()
+            trk[:] = np.array(pos.tolist() + [self.trackers[j].id])
             if np.any(np.isnan(pos)):
-                to_del.append(t)
+                to_del.append(j)
+        for j in reversed(to_del):  # delete nan tracklets
+            self.trackers.pop(j)
         trks = np.ma.compress_rows(np.ma.masked_invalid(trks))
-        for t in reversed(to_del):
-            self.trackers.pop(t)
-        matched, unmatched_dets, unmatched_trks = self.associate_detections(dets, trks)
-        inds = matched.tolist()
+
+        unmatched_dets_trks_inds, supressed_inds, unmatched_trks_inds = self.associate_detections(dets, trks)
+        inds = unmatched_dets_trks_inds.tolist()
 
         # update matched trackers with assigned detections
-        for m0, m1 in matched:
-            self.trackers[m1].update(dets[m0, :])
+        for i, j in unmatched_dets_trks_inds:
+            self.trackers[j].update(dets[i])
+
+        # update unmatched trackers with 0 confidence score
+        for j in unmatched_trks_inds:
+            self.trackers[j].self_update()
 
         # create and initialise new trackers for unmatched detections
-        for i in unmatched_dets:
-            trk = KalmanBoxTracker(dets[i, :])
+        for i in supressed_inds:
+            trk = KalmanBoxTracker(dets[i, :], self.filter_score, self.kalman_internal_update)
             self.trackers.append(trk)
             inds.append([i, len(self.trackers) - 1])
         inds = np.array(sorted(inds, key=lambda _: _[0]))
 
+        unmatched_trks = trks[unmatched_trks_inds.tolist()]
+        unmatched_trks = unmatched_trks[unmatched_trks[:, 4] >= self.conf_threshold]
+
         ret = []
         i = len(self.trackers)
         for trk in reversed(self.trackers):
-            d = trk.get_state()[0]
+            d = trk.state.flatten()
             i -= 1
             if trk.time_since_update < 1 and (trk.hit_streak >= self.min_hits or self.frame_count <= self.min_hits):
                 ret.append(np.concatenate((d, [trk.id])).reshape(1, -1))  # +1 as MOT benchmark requires positive
@@ -204,14 +270,19 @@ class Sort(object):
                 ret.append(None)
                 # remove dead tracklet
                 if trk.time_since_update > self.max_age:
+                    unmatched_trks = unmatched_trks[unmatched_trks[:, -1] != self.trackers[i].id]
                     self.trackers.pop(i)
         ret.reverse()
 
-        filter_mask = [i for i, match_id in enumerate(inds) if ret[match_id[1]] is None]
-        ret = [ret[match_id[1]] for match_id in inds if ret[match_id[1]] is not None]
-        if len(ret):
-            return torch.from_numpy(np.concatenate(ret)).to(dtype=dets.dtype, device=dets.device), filter_mask
-        return torch.empty(0, 5, dtype=dets.dtype, device=dets.device), filter_mask
+        supressed_inds = [id for id, (i, j) in enumerate(inds) if ret[j] is None]
+        ret = [ret[j] for i, j in inds if ret[j] is not None]
+        ret = np.concatenate(ret).astype(dets.dtype) if len(ret) else np.empty((0, 5), dtype=dets.dtype)
+        if self.kalman_return_predictions:
+            prediction_inds = list(range(len(ret), len(ret) + len(unmatched_trks)))
+            ret = np.concatenate([ret, unmatched_trks])
+        else:
+            prediction_inds = []
+        return _SortReturnType(ret, supressed_inds, prediction_inds)
 
     def associate_detections(self, detections, trackers):
         """
@@ -256,104 +327,3 @@ class Sort(object):
             matches = np.concatenate(matches, axis=0)
 
         return matches, np.array(unmatched_detections), np.array(unmatched_trackers)
-
-
-def parse_args():
-    """Parse input arguments."""
-    parser = argparse.ArgumentParser(description='SORT demo')
-    parser.add_argument('--source', default='D:/2DMOT2015')
-    parser.add_argument('--display', dest='display', help='Display online tracker output (slow) [False]',
-                        action='store_true')
-    parser.add_argument("--seq_path", help="Path to detections.", type=str, default='data')
-    parser.add_argument("--phase", help="Subdirectory in seq_path.", type=str, default='train')
-    parser.add_argument("--max_age",
-                        help="Maximum number of frames to keep alive a tracking without associated detections.",
-                        type=int, default=1)
-    parser.add_argument("--min_hits",
-                        help="Minimum number of associated detections before tracking is initialised.",
-                        type=int, default=3)
-    parser.add_argument("--iou_threshold", help="Minimum IOU for match.", type=float, default=0.3)
-    args = parser.parse_args()
-    return args
-
-
-if __name__ == '__main__':
-    import matplotlib
-
-    matplotlib.use('TkAgg')
-    import matplotlib.pyplot as plt
-    import matplotlib.patches as patches
-    from skimage import io
-
-    import glob
-    import time
-    import argparse
-
-    # all train
-    args = parse_args()
-    display = args.display
-    phase = args.phase
-    total_time = 0.0
-    total_frames = 0
-    colours = np.random.rand(32, 3)  # used only for display
-    if display:
-        if not os.path.exists(args.source):
-            print(
-                '\n\tERROR: mot_benchmark link not found!\n\n'
-                'Create a symbolic link to the MOT benchmark\n'
-                '(https://motchallenge.net/data/2D_MOT_2015/#download). E.g.:\n\n'
-                '$ ln -s /path/to/MOT2015_challenge/2DMOT2015 mot_benchmark\n\n')
-            exit()
-        plt.ion()
-        fig = plt.figure()
-        ax1 = fig.add_subplot(111, aspect='equal')
-
-    if not os.path.exists('output'):
-        os.makedirs('output')
-    pattern = os.path.join(args.seq_path, phase, '*', 'det', 'det.txt')
-    for seq_dets_fn in glob.glob(pattern):
-        mot_tracker = Sort(max_age=args.max_age,
-                           min_hits=args.min_hits,
-                           iou_threshold=args.iou_threshold)  # create instance of the SORT tracker
-        seq_dets = np.loadtxt(seq_dets_fn, delimiter=',')
-        seq = seq_dets_fn[pattern.find('*'):].split(os.sep)[0]
-
-        out_path = os.path.join('output', seq)
-        os.makedirs(os.path.dirname(out_path), exist_ok=True)
-        with open(out_path, 'w') as out_file:
-            print("Processing %s." % (seq))
-            for frame in range(int(seq_dets[:, 0].max())):
-                frame += 1  # detection and frame numbers begin at 1
-                dets = seq_dets[seq_dets[:, 0] == frame, 2:7]
-                dets[:, 2:4] += dets[:, 0:2]  # convert to [x1,y1,w,h] to [x1,y1,x2,y2]
-                total_frames += 1
-
-                if display:
-                    fn = f'{args.source}/{phase}/{seq}/img1/{frame:06d}.jpg'
-                    im = io.imread(fn)
-                    ax1.imshow(im)
-                    plt.title(seq + ' Tracked Targets')
-
-                start_time = time.time()
-                trackers = mot_tracker.update(dets)
-                cycle_time = time.time() - start_time
-                total_time += cycle_time
-
-                for d in trackers:
-                    print('%d,%d,%.2f,%.2f,%.2f,%.2f,1,-1,-1,-1' % (frame, d[4], d[0], d[1], d[2] - d[0], d[3] - d[1]),
-                          file=out_file)
-                    if display:
-                        d = d.astype(np.int32)
-                        ax1.add_patch(patches.Rectangle((d[0], d[1]), d[2] - d[0], d[3] - d[1], fill=False, lw=3,
-                                                        ec=colours[d[4] % 32, :]))
-
-                if display:
-                    fig.canvas.flush_events()
-                    plt.draw()
-                    ax1.cla()
-
-    # print("Total Tracking took: %.3f seconds for %d frames or %.1f FPS" % (
-    #     total_time, total_frames, total_frames / total_time))
-
-    if display:
-        print("Note: to get real runtime results run without the option: --display")
