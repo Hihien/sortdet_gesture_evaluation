@@ -39,7 +39,7 @@ def main():
 
     dets = load_prediction(prediction_output_file)
 
-    tracker = Sort(max_age=10, min_hits=1, iou_threshold=0.3)
+    tracker = Sort(max_age=20, min_hits=0, iou_threshold=0.3)
 
     tracklets = {}
     for frame_id, det in tqdm(enumerate(dets), total=len(dets)):

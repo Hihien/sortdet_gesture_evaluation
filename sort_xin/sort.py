@@ -191,7 +191,7 @@ class KalmanBoxTracker(object):
 class Sort(object):
     def __init__(self,
                  max_age=1,
-                 min_hits=3,
+                 min_hits=0,
                  iou_threshold=0.3,
                  conf_threshold=0.1,
                  filter_score=False,
