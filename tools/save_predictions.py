@@ -51,6 +51,7 @@ def main():
             if track_id not in tracklets.keys():
                 # init if not exist
                 tracklets[track_id] = {
+                    'category': 0,
                     'start': frame_id,
                     'end': frame_id,
                     'bbox': None,

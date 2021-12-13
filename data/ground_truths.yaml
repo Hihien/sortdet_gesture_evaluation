@@ -1,5 +1,6 @@
 1:
     subject_id: 3
+    category: 0
     start: 0
     end: 109
     bbox: [121, 621, 254, 791]
@@ -116,6 +117,7 @@
         109: *id022
 2:
     subject_id: 4
+    category: 0
     start: 0
     end: 109
     bbox: [830, 507, 924, 828]
@@ -232,6 +234,7 @@
         109: *id044
 3:
     subject_id: 15
+    category: 0
     start: 0
     end: 109
     bbox: [1750, 525, 1846, 662]
@@ -348,6 +351,7 @@
         109: *id066
 4:
     subject_id: 24
+    category: 0
     start: 0
     end: 109
     bbox: [1671, 422, 1726, 566]
@@ -464,6 +468,7 @@
         109: *id088
 5:
     subject_id: 35
+    category: 0
     start: 0
     end: 109
     bbox: [1581, 319, 1626, 420]
@@ -580,6 +585,7 @@
         109: *id110
 6:
     subject_id: 5
+    category: 0
     start: 5
     end: 109
     bbox: [1306, 677, 1474, 862]
@@ -691,6 +697,7 @@
         109: *id131
 7:
     subject_id: 11
+    category: 0
     start: 10
     end: 109
     bbox: [906, 483, 960, 637]
@@ -797,6 +804,7 @@
         109: *id151
 8:
     subject_id: 31
+    category: 0
     start: 20
     end: 109
     bbox: [837, 147, 887, 316]
@@ -893,6 +901,7 @@
         109: *id169
 9:
     subject_id: 9
+    category: 0
     start: 25
     end: 109
     bbox: [329, 379, 460, 542]
@@ -984,6 +993,7 @@
         109: *id186
 10:
     subject_id: 22
+    category: 0
     start: 25
     end: 109
     bbox: [1120, 332, 1186, 462]
@@ -1075,6 +1085,7 @@
         109: *id203
 11:
     subject_id: 2
+    category: 0
     start: 40
     end: 54
     bbox: [0, 440, 46, 569]
@@ -1096,6 +1107,7 @@
         54: *id206
 12:
     subject_id: 34
+    category: 0
     start: 50
     end: 84
     bbox: [1371, 294, 1418, 370]
@@ -1137,6 +1149,7 @@
         84: *id213
 13:
     subject_id: 6
+    category: 0
     start: 65
     end: 109
     bbox: [26, 318, 69, 421]
@@ -1188,6 +1201,7 @@
         109: *id222
 14:
     subject_id: 36
+    category: 0
     start: 70
     end: 89
     bbox: [1655, 348, 1702, 433]
@@ -1214,6 +1228,7 @@
         89: *id226
 15:
     subject_id: 7
+    category: 0
     start: 80
     end: 109
     bbox: [120, 348, 164, 467]
@@ -1250,6 +1265,7 @@
         109: *id232
 16:
     subject_id: 3
+    category: 0
     start: 115
     end: 299
     bbox: [135, 632, 246, 786]
@@ -1441,6 +1457,7 @@
         299: *id269
 17:
     subject_id: 4
+    category: 0
     start: 115
     end: 294
     bbox: [808, 572, 890, 793]
@@ -1627,6 +1644,7 @@
         294: *id305
 18:
     subject_id: 15
+    category: 0
     start: 115
     end: 299
     bbox: [1749, 538, 1836, 673]
@@ -1818,6 +1836,7 @@
         299: *id342
 19:
     subject_id: 24
+    category: 0
     start: 115
     end: 324
     bbox: [1670, 434, 1726, 561]
@@ -2034,6 +2053,7 @@
         324: *id384
 20:
     subject_id: 35
+    category: 0
     start: 115
     end: 314
     bbox: [1598, 331, 1626, 412]
@@ -2240,6 +2260,7 @@
         314: *id424
 21:
     subject_id: 5
+    category: 0
     start: 115
     end: 299
     bbox: [1326, 681, 1482, 868]
@@ -2431,6 +2452,7 @@
         299: *id461
 22:
     subject_id: 11
+    category: 0
     start: 115
     end: 304
     bbox: [907, 483, 960, 639]
@@ -2627,6 +2649,7 @@
         304: *id499
 23:
     subject_id: 31
+    category: 0
     start: 115
     end: 299
     bbox: [839, 149, 880, 295]
@@ -2818,6 +2841,7 @@
         299: *id536
 24:
     subject_id: 9
+    category: 0
     start: 115
     end: 259
     bbox: [325, 359, 492, 501]
@@ -2969,6 +2993,7 @@
         259: *id565
 25:
     subject_id: 22
+    category: 0
     start: 115
     end: 299
     bbox: [1130, 332, 1191, 461]
@@ -3160,6 +3185,7 @@
         299: *id602
 26:
     subject_id: 6
+    category: 0
     start: 115
     end: 324
     bbox: [25, 305, 68, 434]
@@ -3376,6 +3402,7 @@
         324: *id644
 27:
     subject_id: 7
+    category: 0
     start: 115
     end: 244
     bbox: [104, 348, 178, 469]
@@ -3512,6 +3539,7 @@
         244: *id670
 28:
     subject_id: 36
+    category: 0
     start: 145
     end: 154
     bbox: [1660, 354, 1683, 426]
@@ -3528,6 +3556,7 @@
         154: *id672
 29:
     subject_id: 9
+    category: 0
     start: 265
     end: 294
     bbox: [315, 315, 397, 458]
@@ -3564,6 +3593,7 @@
         294: *id678
 30:
     subject_id: 3
+    category: 0
     start: 350
     end: 649
     bbox: [115, 635, 254, 788]
@@ -3870,6 +3900,7 @@
         649: *id738
 31:
     subject_id: 5
+    category: 0
     start: 355
     end: 639
     bbox: [1532, 707, 1649, 986]
@@ -4161,6 +4192,7 @@
         639: *id795
 32:
     subject_id: 31
+    category: 0
     start: 360
     end: 664
     bbox: [845, 158, 883, 307]
@@ -4472,6 +4504,7 @@
         664: *id856
 33:
     subject_id: 9
+    category: 0
     start: 360
     end: 369
     bbox: [267, 415, 319, 500]
@@ -4488,6 +4521,7 @@
         369: *id858
 34:
     subject_id: 15
+    category: 0
     start: 370
     end: 644
     bbox: [1750, 478, 1850, 654]
@@ -4769,6 +4803,7 @@
         644: *id913
 35:
     subject_id: 24
+    category: 0
     start: 370
     end: 644
     bbox: [1551, 325, 1634, 485]
@@ -5050,6 +5085,7 @@
         644: *id968
 36:
     subject_id: 22
+    category: 0
     start: 370
     end: 649
     bbox: [1124, 304, 1188, 456]
@@ -5336,6 +5372,7 @@
         649: *id1024
 37:
     subject_id: 6
+    category: 0
     start: 375
     end: 659
     bbox: [15, 313, 59, 418]
@@ -5627,6 +5664,7 @@
         659: *id1081
 38:
     subject_id: 35
+    category: 0
     start: 375
     end: 644
     bbox: [1517, 283, 1587, 411]
@@ -5903,6 +5941,7 @@
         644: *id1135
 39:
     subject_id: 7
+    category: 0
     start: 375
     end: 569
     bbox: [158, 328, 252, 471]
@@ -6104,6 +6143,7 @@
         569: *id1174
 40:
     subject_id: 4
+    category: 0
     start: 380
     end: 639
     bbox: [819, 536, 918, 894]
@@ -6370,6 +6410,7 @@
         639: *id1226
 41:
     subject_id: 11
+    category: 0
     start: 385
     end: 649
     bbox: [919, 482, 965, 634]
@@ -6641,6 +6682,7 @@
         649: *id1279
 42:
     subject_id: 9
+    category: 0
     start: 390
     end: 644
     bbox: [240, 378, 365, 568]
@@ -6902,6 +6944,7 @@
         644: *id1330
 43:
     subject_id: 36
+    category: 0
     start: 400
     end: 414
     bbox: [1638, 329, 1680, 415]
@@ -6923,6 +6966,7 @@
         414: *id1333
 44:
     subject_id: 36
+    category: 0
     start: 435
     end: 654
     bbox: [1663, 345, 1704, 413]
@@ -7149,6 +7193,7 @@
         654: *id1377
 45:
     subject_id: 9
+    category: 0
     start: 685
     end: 694
     bbox: [275, 437, 327, 525]
@@ -7165,6 +7210,7 @@
         694: *id1379
 46:
     subject_id: 15
+    category: 0
     start: 705
     end: 829
     bbox: [1743, 510, 1833, 667]
@@ -7296,6 +7342,7 @@
         829: *id1404
 47:
     subject_id: 5
+    category: 0
     start: 710
     end: 824
     bbox: [1529, 829, 1642, 976]
@@ -7417,6 +7464,7 @@
         824: *id1427
 48:
     subject_id: 3
+    category: 0
     start: 710
     end: 829
     bbox: [105, 649, 244, 783]
@@ -7543,6 +7591,7 @@
         829: *id1451
 49:
     subject_id: 11
+    category: 0
     start: 715
     end: 829
     bbox: [787, 481, 843, 618]
@@ -7664,6 +7713,7 @@
         829: *id1474
 50:
     subject_id: 22
+    category: 0
     start: 715
     end: 824
     bbox: [1128, 284, 1200, 439]
@@ -7780,6 +7830,7 @@
         824: *id1496
 51:
     subject_id: 31
+    category: 0
     start: 715
     end: 819
     bbox: [832, 150, 883, 307]
@@ -7891,6 +7942,7 @@
         819: *id1517
 52:
     subject_id: 9
+    category: 0
     start: 720
     end: 724
     bbox: [299, 413, 338, 512]
@@ -7902,6 +7954,7 @@
         724: *id1518
 53:
     subject_id: 9
+    category: 0
     start: 730
     end: 824
     bbox: [296, 363, 351, 519]
@@ -8003,6 +8056,7 @@
         824: *id1537
 54:
     subject_id: 7
+    category: 0
     start: 730
     end: 809
     bbox: [172, 359, 238, 464]
@@ -8089,6 +8143,7 @@
         809: *id1553
 55:
     subject_id: 6
+    category: 0
     start: 730
     end: 814
     bbox: [17, 335, 52, 429]
@@ -8180,6 +8235,7 @@
         814: *id1570
 56:
     subject_id: 24
+    category: 0
     start: 730
     end: 829
     bbox: [1574, 335, 1744, 508]
@@ -8286,6 +8342,7 @@
         829: *id1590
 57:
     subject_id: 35
+    category: 0
     start: 740
     end: 844
     bbox: [1528, 322, 1633, 420]
@@ -8397,6 +8454,7 @@
         844: *id1611
 58:
     subject_id: 36
+    category: 0
     start: 740
     end: 849
     bbox: [1657, 348, 1692, 419]
@@ -8513,6 +8571,7 @@
         849: *id1633
 59:
     subject_id: 4
+    category: 0
     start: 750
     end: 824
     bbox: [650, 632, 724, 884]
@@ -8594,6 +8653,7 @@
         824: *id1648
 60:
     subject_id: 25
+    category: 0
     start: 1050
     end: 1224
     bbox: [1769, 434, 1870, 582]
@@ -8775,6 +8835,7 @@
         1224: *id1683
 61:
     subject_id: 13
+    category: 0
     start: 1055
     end: 1229
     bbox: [1463, 505, 1560, 684]
@@ -8956,6 +9017,7 @@
         1229: *id1718
 62:
     subject_id: 21
+    category: 0
     start: 1055
     end: 1224
     bbox: [956, 260, 1036, 455]
@@ -9132,6 +9194,7 @@
         1224: *id1752
 63:
     subject_id: 17
+    category: 0
     start: 1060
     end: 1234
     bbox: [260, 255, 301, 394]
@@ -9313,6 +9376,7 @@
         1234: *id1787
 64:
     subject_id: 19
+    category: 0
     start: 1060
     end: 1239
     bbox: [482, 265, 554, 402]
@@ -9499,6 +9563,7 @@
         1239: *id1823
 65:
     subject_id: 14
+    category: 0
     start: 1060
     end: 1219
     bbox: [1641, 544, 1717, 690]
@@ -9665,6 +9730,7 @@
         1219: *id1855
 66:
     subject_id: 32
+    category: 0
     start: 1060
     end: 1224
     bbox: [983, 166, 1049, 266]
@@ -9836,6 +9902,7 @@
         1224: *id1888
 67:
     subject_id: 12
+    category: 0
     start: 1060
     end: 1384
     bbox: [1160, 407, 1284, 652]
@@ -10167,6 +10234,7 @@
         1384: *id1953
 68:
     subject_id: 10
+    category: 0
     start: 1065
     end: 1224
     bbox: [701, 396, 779, 599]
@@ -10333,6 +10401,7 @@
         1224: *id1985
 69:
     subject_id: 29
+    category: 0
     start: 1065
     end: 1159
     bbox: [456, 167, 521, 269]
@@ -10434,6 +10503,7 @@
         1159: *id2004
 70:
     subject_id: 27
+    category: 0
     start: 1065
     end: 1299
     bbox: [381, 108, 423, 202]
@@ -10675,6 +10745,7 @@
         1299: *id2051
 71:
     subject_id: 26
+    category: 0
     start: 1065
     end: 1284
     bbox: [286, 102, 358, 222]
@@ -10901,6 +10972,7 @@
         1284: *id2095
 72:
     subject_id: 33
+    category: 0
     start: 1065
     end: 1219
     bbox: [1135, 163, 1208, 352]
@@ -11062,6 +11134,7 @@
         1219: *id2126
 73:
     subject_id: 16
+    category: 0
     start: 1065
     end: 1224
     bbox: [230, 247, 289, 341]
@@ -11228,6 +11301,7 @@
         1224: *id2158
 74:
     subject_id: 18
+    category: 0
     start: 1070
     end: 1234
     bbox: [389, 251, 452, 394]
@@ -11399,6 +11473,7 @@
         1234: *id2191
 75:
     subject_id: 20
+    category: 0
     start: 1070
     end: 1229
     bbox: [634, 189, 740, 411]
@@ -11565,6 +11640,7 @@
         1229: *id2223
 76:
     subject_id: 34
+    category: 0
     start: 1070
     end: 1219
     bbox: [1294, 251, 1345, 346]
@@ -11721,6 +11797,7 @@
         1219: *id2253
 77:
     subject_id: 28
+    category: 0
     start: 1070
     end: 1224
     bbox: [415, 155, 470, 297]
@@ -11882,6 +11959,7 @@
         1224: *id2284
 78:
     subject_id: 8
+    category: 0
     start: 1075
     end: 1224
     bbox: [233, 312, 288, 480]
@@ -12038,6 +12116,7 @@
         1224: *id2314
 79:
     subject_id: 23
+    category: 0
     start: 1075
     end: 1219
     bbox: [1301, 296, 1405, 476]
@@ -12189,6 +12268,7 @@
         1219: *id2343
 80:
     subject_id: 30
+    category: 0
     start: 1095
     end: 1239
     bbox: [577, 184, 670, 298]
@@ -12340,6 +12420,7 @@
         1239: *id2372
 81:
     subject_id: 29
+    category: 0
     start: 1170
     end: 1234
     bbox: [469, 167, 535, 248]
@@ -12411,6 +12492,7 @@
         1234: *id2385
 82:
     subject_id: 13
+    category: 0
     start: 1285
     end: 1379
     bbox: [1474, 492, 1559, 646]
@@ -12512,6 +12594,7 @@
         1379: *id2404
 83:
     subject_id: 19
+    category: 0
     start: 1285
     end: 1389
     bbox: [489, 263, 560, 394]
@@ -12623,6 +12706,7 @@
         1389: *id2425
 84:
     subject_id: 29
+    category: 0
     start: 1290
     end: 1379
     bbox: [458, 145, 510, 265]
@@ -12719,6 +12803,7 @@
         1379: *id2443
 85:
     subject_id: 16
+    category: 0
     start: 1295
     end: 1379
     bbox: [221, 238, 267, 328]
@@ -12810,6 +12895,7 @@
         1379: *id2460
 86:
     subject_id: 30
+    category: 0
     start: 1295
     end: 1389
     bbox: [619, 185, 663, 298]
@@ -12911,6 +12997,7 @@
         1389: *id2479
 87:
     subject_id: 33
+    category: 0
     start: 1295
     end: 1379
     bbox: [1143, 178, 1204, 327]
@@ -13002,6 +13089,7 @@
         1379: *id2496
 88:
     subject_id: 34
+    category: 0
     start: 1295
     end: 1374
     bbox: [1294, 224, 1335, 344]
@@ -13088,6 +13176,7 @@
         1374: *id2512
 89:
     subject_id: 28
+    category: 0
     start: 1300
     end: 1379
     bbox: [424, 174, 455, 255]
@@ -13174,6 +13263,7 @@
         1379: *id2528
 90:
     subject_id: 26
+    category: 0
     start: 1300
     end: 1399
     bbox: [270, 98, 349, 226]
@@ -13280,6 +13370,7 @@
         1399: *id2548
 91:
     subject_id: 32
+    category: 0
     start: 1300
     end: 1384
     bbox: [888, 161, 929, 268]
@@ -13371,6 +13462,7 @@
         1384: *id2565
 92:
     subject_id: 25
+    category: 0
     start: 1300
     end: 1374
     bbox: [1774, 459, 1818, 570]
@@ -13452,6 +13544,7 @@
         1374: *id2580
 93:
     subject_id: 23
+    category: 0
     start: 1300
     end: 1384
     bbox: [1307, 357, 1365, 482]
@@ -13543,6 +13636,7 @@
         1384: *id2597
 94:
     subject_id: 21
+    category: 0
     start: 1300
     end: 1379
     bbox: [889, 272, 917, 390]
@@ -13629,6 +13723,7 @@
         1379: *id2613
 95:
     subject_id: 10
+    category: 0
     start: 1300
     end: 1384
     bbox: [585, 381, 648, 572]
@@ -13720,6 +13815,7 @@
         1384: *id2630
 96:
     subject_id: 14
+    category: 0
     start: 1305
     end: 1384
     bbox: [1630, 527, 1711, 660]
@@ -13806,6 +13902,7 @@
         1384: *id2646
 97:
     subject_id: 8
+    category: 0
     start: 1305
     end: 1379
     bbox: [233, 352, 285, 469]
@@ -13887,6 +13984,7 @@
         1379: *id2661
 98:
     subject_id: 17
+    category: 0
     start: 1305
     end: 1389
     bbox: [258, 241, 300, 346]
@@ -13978,6 +14076,7 @@
         1389: *id2678
 99:
     subject_id: 20
+    category: 0
     start: 1305
     end: 1379
     bbox: [663, 199, 733, 371]
@@ -14059,6 +14158,7 @@
         1379: *id2693
 100:
     subject_id: 27
+    category: 0
     start: 1315
     end: 1384
     bbox: [361, 137, 396, 223]
@@ -14135,6 +14235,7 @@
         1384: *id2707
 101:
     subject_id: 18
+    category: 0
     start: 1325
     end: 1379
     bbox: [387, 269, 436, 350]
@@ -14196,6 +14297,7 @@
         1379: *id2718
 102:
     subject_id: 13
+    category: 0
     start: 1420
     end: 1449
     bbox: [1457, 505, 1537, 678]
@@ -14232,6 +14334,7 @@
         1449: *id2724
 103:
     subject_id: 25
+    category: 0
     start: 1420
     end: 1449
     bbox: [1774, 452, 1814, 563]
@@ -14268,6 +14371,7 @@
         1449: *id2730
 104:
     subject_id: 32
+    category: 0
     start: 1420
     end: 1449
     bbox: [879, 153, 930, 274]
@@ -14304,6 +14408,7 @@
         1449: *id2736
 105:
     subject_id: 12
+    category: 0
     start: 1425
     end: 1449
     bbox: [1160, 479, 1235, 627]
@@ -14335,6 +14440,7 @@
         1449: *id2741
 106:
     subject_id: 33
+    category: 0
     start: 1425
     end: 1449
     bbox: [1132, 190, 1216, 304]
@@ -14366,6 +14472,7 @@
         1449: *id2746
 107:
     subject_id: 34
+    category: 0
     start: 1425
     end: 1449
     bbox: [1365, 260, 1408, 364]
@@ -14397,6 +14504,7 @@
         1449: *id2751
 108:
     subject_id: 29
+    category: 0
     start: 1425
     end: 1449
     bbox: [469, 175, 520, 279]
@@ -14428,6 +14536,7 @@
         1449: *id2756
 109:
     subject_id: 27
+    category: 0
     start: 1425
     end: 1449
     bbox: [358, 136, 407, 246]
@@ -14459,6 +14568,7 @@
         1449: *id2761
 110:
     subject_id: 19
+    category: 0
     start: 1425
     end: 1449
     bbox: [503, 245, 569, 365]
@@ -14490,6 +14600,7 @@
         1449: *id2766
 111:
     subject_id: 14
+    category: 0
     start: 1430
     end: 1449
     bbox: [1623, 529, 1701, 668]
@@ -14516,6 +14627,7 @@
         1449: *id2770
 112:
     subject_id: 10
+    category: 0
     start: 1430
     end: 1449
     bbox: [711, 463, 768, 601]
@@ -14542,6 +14654,7 @@
         1449: *id2774
 113:
     subject_id: 16
+    category: 0
     start: 1430
     end: 1449
     bbox: [223, 247, 275, 334]
@@ -14568,6 +14681,7 @@
         1449: *id2778
 114:
     subject_id: 18
+    category: 0
     start: 1430
     end: 1449
     bbox: [390, 292, 449, 384]
@@ -14594,6 +14708,7 @@
         1449: *id2782
 115:
     subject_id: 20
+    category: 0
     start: 1430
     end: 1449
     bbox: [676, 193, 764, 345]
@@ -14620,6 +14735,7 @@
         1449: *id2786
 116:
     subject_id: 21
+    category: 0
     start: 1430
     end: 1449
     bbox: [969, 269, 1029, 411]
@@ -14646,6 +14762,7 @@
         1449: *id2790
 117:
     subject_id: 26
+    category: 0
     start: 1430
     end: 1449
     bbox: [281, 106, 321, 212]
@@ -14672,6 +14789,7 @@
         1449: *id2794
 118:
     subject_id: 30
+    category: 0
     start: 1430
     end: 1449
     bbox: [608, 154, 658, 266]
@@ -14698,6 +14816,7 @@
         1449: *id2798
 119:
     subject_id: 8
+    category: 0
     start: 1435
     end: 1449
     bbox: [240, 340, 309, 462]
@@ -14719,6 +14838,7 @@
         1449: *id2801
 120:
     subject_id: 28
+    category: 0
     start: 1435
     end: 1449
     bbox: [430, 185, 464, 264]
@@ -14740,6 +14860,7 @@
         1449: *id2804
 121:
     subject_id: 17
+    category: 0
     start: 1440
     end: 1449
     bbox: [260, 254, 307, 357]
@@ -14756,6 +14877,7 @@
         1449: *id2806
 122:
     subject_id: 23
+    category: 0
     start: 1440
     end: 1449
     bbox: [1294, 329, 1369, 459]
@@ -14772,6 +14894,7 @@
         1449: *id2808
 123:
     subject_id: 13
+    category: 0
     start: 1455
     end: 1509
     bbox: [1442, 508, 1537, 680]
@@ -14833,6 +14956,7 @@
         1509: *id2819
 124:
     subject_id: 32
+    category: 0
     start: 1455
     end: 1514
     bbox: [887, 143, 933, 258]
@@ -14899,6 +15023,7 @@
         1514: *id2831
 125:
     subject_id: 25
+    category: 0
     start: 1455
     end: 1474
     bbox: [1770, 452, 1813, 563]
@@ -14925,6 +15050,7 @@
         1474: *id2835
 126:
     subject_id: 12
+    category: 0
     start: 1455
     end: 1549
     bbox: [1164, 479, 1235, 649]
@@ -15026,6 +15152,7 @@
         1549: *id2854
 127:
     subject_id: 33
+    category: 0
     start: 1455
     end: 1514
     bbox: [1136, 199, 1217, 319]
@@ -15092,6 +15219,7 @@
         1514: *id2866
 128:
     subject_id: 34
+    category: 0
     start: 1455
     end: 1504
     bbox: [1361, 260, 1408, 359]
@@ -15148,6 +15276,7 @@
         1504: *id2876
 129:
     subject_id: 29
+    category: 0
     start: 1455
     end: 1514
     bbox: [474, 163, 517, 263]
@@ -15214,6 +15343,7 @@
         1514: *id2888
 130:
     subject_id: 27
+    category: 0
     start: 1455
     end: 1509
     bbox: [357, 136, 399, 222]
@@ -15275,6 +15405,7 @@
         1509: *id2899
 131:
     subject_id: 19
+    category: 0
     start: 1455
     end: 1519
     bbox: [506, 245, 566, 352]
@@ -15346,6 +15477,7 @@
         1519: *id2912
 132:
     subject_id: 14
+    category: 0
     start: 1455
     end: 1504
     bbox: [1625, 529, 1701, 657]
@@ -15402,6 +15534,7 @@
         1504: *id2922
 133:
     subject_id: 10
+    category: 0
     start: 1455
     end: 1499
     bbox: [711, 431, 785, 601]
@@ -15453,6 +15586,7 @@
         1499: *id2931
 134:
     subject_id: 16
+    category: 0
     start: 1455
     end: 1509
     bbox: [225, 247, 277, 341]
@@ -15514,6 +15648,7 @@
         1509: *id2942
 135:
     subject_id: 18
+    category: 0
     start: 1455
     end: 1504
     bbox: [383, 280, 443, 369]
@@ -15570,6 +15705,7 @@
         1504: *id2952
 136:
     subject_id: 20
+    category: 0
     start: 1455
     end: 1504
     bbox: [663, 275, 763, 425]
@@ -15626,6 +15762,7 @@
         1504: *id2962
 137:
     subject_id: 21
+    category: 0
     start: 1455
     end: 1509
     bbox: [968, 269, 1028, 424]
@@ -15687,6 +15824,7 @@
         1509: *id2973
 138:
     subject_id: 26
+    category: 0
     start: 1455
     end: 1504
     bbox: [281, 102, 351, 216]
@@ -15743,6 +15881,7 @@
         1504: *id2983
 139:
     subject_id: 30
+    category: 0
     start: 1455
     end: 1514
     bbox: [570, 163, 668, 294]
@@ -15809,6 +15948,7 @@
         1514: *id2995
 140:
     subject_id: 8
+    category: 0
     start: 1455
     end: 1499
     bbox: [249, 362, 303, 474]
@@ -15860,6 +16000,7 @@
         1499: *id3004
 141:
     subject_id: 28
+    category: 0
     start: 1455
     end: 1509
     bbox: [408, 184, 459, 267]
@@ -15921,6 +16062,7 @@
         1509: *id3015
 142:
     subject_id: 17
+    category: 0
     start: 1455
     end: 1509
     bbox: [264, 242, 317, 366]
@@ -15982,6 +16124,7 @@
         1509: *id3026
 143:
     subject_id: 23
+    category: 0
     start: 1455
     end: 1509
     bbox: [1295, 329, 1370, 479]
@@ -16043,6 +16186,7 @@
         1509: *id3037
 144:
     subject_id: 13
+    category: 0
     start: 1565
     end: 1724
     bbox: [1448, 466, 1537, 661]
@@ -16209,6 +16353,7 @@
         1724: *id3069
 145:
     subject_id: 12
+    category: 0
     start: 1575
     end: 1744
     bbox: [1155, 445, 1268, 641]
@@ -16385,6 +16530,7 @@
         1744: *id3103
 146:
     subject_id: 11
+    category: 0
     start: 1575
     end: 1744
     bbox: [785, 463, 851, 615]
@@ -16561,6 +16707,7 @@
         1744: *id3137
 147:
     subject_id: 10
+    category: 0
     start: 1575
     end: 1749
     bbox: [712, 428, 775, 600]
@@ -16742,6 +16889,7 @@
         1749: *id3172
 148:
     subject_id: 20
+    category: 0
     start: 1575
     end: 1734
     bbox: [654, 304, 748, 425]
@@ -16908,6 +17056,7 @@
         1734: *id3204
 149:
     subject_id: 21
+    category: 0
     start: 1575
     end: 1739
     bbox: [963, 269, 1036, 407]
@@ -17079,6 +17228,7 @@
         1739: *id3237
 150:
     subject_id: 33
+    category: 0
     start: 1575
     end: 1739
     bbox: [1136, 175, 1220, 292]
@@ -17250,6 +17400,7 @@
         1739: *id3270
 151:
     subject_id: 14
+    category: 0
     start: 1580
     end: 1734
     bbox: [1615, 489, 1721, 668]
@@ -17411,6 +17562,7 @@
         1734: *id3301
 152:
     subject_id: 22
+    category: 0
     start: 1580
     end: 1739
     bbox: [1124, 272, 1207, 457]
@@ -17577,6 +17729,7 @@
         1739: *id3333
 153:
     subject_id: 3
+    category: 0
     start: 1580
     end: 1739
     bbox: [126, 649, 258, 790]
@@ -17743,6 +17896,7 @@
         1739: *id3365
 154:
     subject_id: 19
+    category: 0
     start: 1580
     end: 1744
     bbox: [509, 235, 567, 358]
@@ -17914,6 +18068,7 @@
         1744: *id3398
 155:
     subject_id: 17
+    category: 0
     start: 1580
     end: 1744
     bbox: [254, 231, 312, 362]
@@ -18085,6 +18240,7 @@
         1744: *id3431
 156:
     subject_id: 4
+    category: 0
     start: 1585
     end: 1739
     bbox: [827, 481, 967, 809]
@@ -18246,6 +18402,7 @@
         1739: *id3462
 157:
     subject_id: 15
+    category: 0
     start: 1585
     end: 1739
     bbox: [1748, 496, 1842, 662]
@@ -18407,6 +18564,7 @@
         1739: *id3493
 158:
     subject_id: 23
+    category: 0
     start: 1585
     end: 1739
     bbox: [1306, 285, 1414, 482]
@@ -18568,6 +18726,7 @@
         1739: *id3524
 159:
     subject_id: 27
+    category: 0
     start: 1585
     end: 1594
     bbox: [359, 179, 409, 258]
@@ -18584,6 +18743,7 @@
         1594: *id3526
 160:
     subject_id: 28
+    category: 0
     start: 1585
     end: 1744
     bbox: [399, 185, 458, 292]
@@ -18750,6 +18910,7 @@
         1744: *id3558
 161:
     subject_id: 29
+    category: 0
     start: 1585
     end: 1739
     bbox: [452, 201, 497, 302]
@@ -18911,6 +19072,7 @@
         1739: *id3589
 162:
     subject_id: 30
+    category: 0
     start: 1585
     end: 1744
     bbox: [604, 172, 660, 288]
@@ -19077,6 +19239,7 @@
         1744: *id3621
 163:
     subject_id: 31
+    category: 0
     start: 1585
     end: 1754
     bbox: [823, 154, 896, 301]
@@ -19253,6 +19416,7 @@
         1754: *id3655
 164:
     subject_id: 35
+    category: 0
     start: 1585
     end: 1734
     bbox: [1576, 280, 1643, 421]
@@ -19409,6 +19573,7 @@
         1734: *id3685
 165:
     subject_id: 36
+    category: 0
     start: 1585
     end: 1764
     bbox: [1634, 341, 1691, 431]
@@ -19595,6 +19760,7 @@
         1764: *id3721
 166:
     subject_id: 7
+    category: 0
     start: 1585
     end: 1749
     bbox: [165, 339, 254, 477]
@@ -19766,6 +19932,7 @@
         1749: *id3754
 167:
     subject_id: 6
+    category: 0
     start: 1590
     end: 1749
     bbox: [30, 333, 86, 455]
@@ -19932,6 +20099,7 @@
         1749: *id3786
 168:
     subject_id: 8
+    category: 0
     start: 1590
     end: 1614
     bbox: [244, 340, 313, 467]
@@ -19963,6 +20131,7 @@
         1614: *id3791
 169:
     subject_id: 18
+    category: 0
     start: 1590
     end: 1739
     bbox: [361, 249, 414, 373]
@@ -20119,6 +20288,7 @@
         1739: *id3821
 170:
     subject_id: 32
+    category: 0
     start: 1590
     end: 1749
     bbox: [895, 124, 940, 258]
@@ -20285,6 +20455,7 @@
         1749: *id3853
 171:
     subject_id: 34
+    category: 0
     start: 1590
     end: 1739
     bbox: [1282, 226, 1340, 350]
@@ -20441,6 +20612,7 @@
         1739: *id3883
 172:
     subject_id: 16
+    category: 0
     start: 1595
     end: 1624
     bbox: [164, 239, 207, 330]
@@ -20477,6 +20649,7 @@
         1624: *id3889
 173:
     subject_id: 25
+    category: 0
     start: 1595
     end: 1739
     bbox: [1770, 425, 1832, 538]
@@ -20628,6 +20801,7 @@
         1739: *id3918
 174:
     subject_id: 27
+    category: 0
     start: 1605
     end: 1749
     bbox: [359, 134, 405, 228]
@@ -20779,6 +20953,7 @@
         1749: *id3947
 175:
     subject_id: 26
+    category: 0
     start: 1605
     end: 1734
     bbox: [305, 114, 355, 250]
@@ -20915,6 +21090,7 @@
         1734: *id3973
 176:
     subject_id: 24
+    category: 0
     start: 1630
     end: 1734
     bbox: [1667, 357, 1751, 479]
@@ -21026,6 +21202,7 @@
         1734: *id3994
 177:
     subject_id: 8
+    category: 0
     start: 1635
     end: 1749
     bbox: [205, 335, 307, 489]
@@ -21147,6 +21324,7 @@
         1749: *id4017
 178:
     subject_id: 9
+    category: 0
     start: 1665
     end: 1744
     bbox: [360, 364, 474, 541]
@@ -21233,6 +21411,7 @@
         1744: *id4033
 179:
     subject_id: 35
+    category: 0
     start: 1745
     end: 2014
     bbox: [1578, 334, 1634, 421]
@@ -21509,6 +21688,7 @@
         2014: *id4087
 180:
     subject_id: 13
+    category: 0
     start: 1755
     end: 1884
     bbox: [1450, 501, 1547, 694]
@@ -21645,6 +21825,7 @@
         1884: *id4113
 181:
     subject_id: 25
+    category: 0
     start: 1760
     end: 1899
     bbox: [1764, 439, 1829, 574]
@@ -21791,6 +21972,7 @@
         1899: *id4141
 182:
     subject_id: 12
+    category: 0
     start: 1760
     end: 1894
     bbox: [1145, 445, 1269, 665]
@@ -21932,6 +22114,7 @@
         1894: *id4168
 183:
     subject_id: 4
+    category: 0
     start: 1760
     end: 1904
     bbox: [631, 582, 762, 899]
@@ -22083,6 +22266,7 @@
         1904: *id4197
 184:
     subject_id: 3
+    category: 0
     start: 1760
     end: 1884
     bbox: [120, 649, 261, 786]
@@ -22214,6 +22398,7 @@
         1884: *id4222
 185:
     subject_id: 20
+    category: 0
     start: 1760
     end: 1889
     bbox: [619, 190, 756, 364]
@@ -22350,6 +22535,7 @@
         1889: *id4248
 186:
     subject_id: 21
+    category: 0
     start: 1760
     end: 1884
     bbox: [964, 265, 1056, 400]
@@ -22481,6 +22667,7 @@
         1884: *id4273
 187:
     subject_id: 33
+    category: 0
     start: 1760
     end: 1889
     bbox: [1211, 200, 1271, 311]
@@ -22617,6 +22804,7 @@
         1889: *id4299
 188:
     subject_id: 15
+    category: 0
     start: 1765
     end: 1889
     bbox: [1741, 521, 1843, 652]
@@ -22748,6 +22936,7 @@
         1889: *id4324
 189:
     subject_id: 10
+    category: 0
     start: 1765
     end: 1899
     bbox: [580, 411, 663, 586]
@@ -22889,6 +23078,7 @@
         1899: *id4351
 190:
     subject_id: 9
+    category: 0
     start: 1765
     end: 1909
     bbox: [278, 366, 382, 535]
@@ -23040,6 +23230,7 @@
         1909: *id4380
 191:
     subject_id: 17
+    category: 0
     start: 1765
     end: 1899
     bbox: [260, 237, 325, 365]
@@ -23181,6 +23372,7 @@
         1899: *id4407
 192:
     subject_id: 22
+    category: 0
     start: 1765
     end: 1889
     bbox: [1124, 286, 1206, 445]
@@ -23312,6 +23504,7 @@
         1889: *id4432
 193:
     subject_id: 32
+    category: 0
     start: 1765
     end: 1889
     bbox: [974, 136, 1027, 252]
@@ -23443,6 +23636,7 @@
         1889: *id4457
 194:
     subject_id: 19
+    category: 0
     start: 1765
     end: 1899
     bbox: [509, 230, 579, 370]
@@ -23584,6 +23778,7 @@
         1899: *id4484
 195:
     subject_id: 30
+    category: 0
     start: 1770
     end: 1884
     bbox: [621, 176, 658, 284]
@@ -23705,6 +23900,7 @@
         1884: *id4507
 196:
     subject_id: 29
+    category: 0
     start: 1770
     end: 1899
     bbox: [508, 180, 555, 290]
@@ -23841,6 +24037,7 @@
         1899: *id4533
 197:
     subject_id: 23
+    category: 0
     start: 1775
     end: 1884
     bbox: [1308, 317, 1404, 477]
@@ -23957,6 +24154,7 @@
         1884: *id4555
 198:
     subject_id: 14
+    category: 0
     start: 1775
     end: 1884
     bbox: [1617, 525, 1703, 658]
@@ -24073,6 +24271,7 @@
         1884: *id4577
 199:
     subject_id: 11
+    category: 0
     start: 1775
     end: 1904
     bbox: [788, 481, 873, 623]
@@ -24209,6 +24408,7 @@
         1904: *id4603
 200:
     subject_id: 7
+    category: 0
     start: 1775
     end: 1884
     bbox: [157, 333, 259, 472]
@@ -24325,6 +24525,7 @@
         1884: *id4625
 201:
     subject_id: 26
+    category: 0
     start: 1775
     end: 1899
     bbox: [303, 117, 354, 225]
@@ -24456,6 +24657,7 @@
         1899: *id4650
 202:
     subject_id: 27
+    category: 0
     start: 1775
     end: 1889
     bbox: [348, 124, 404, 251]
@@ -24577,6 +24779,7 @@
         1889: *id4673
 203:
     subject_id: 28
+    category: 0
     start: 1775
     end: 1809
     bbox: [385, 190, 448, 282]
@@ -24618,6 +24821,7 @@
         1809: *id4680
 204:
     subject_id: 31
+    category: 0
     start: 1775
     end: 1899
     bbox: [834, 156, 883, 308]
@@ -24749,6 +24953,7 @@
         1899: *id4705
 205:
     subject_id: 34
+    category: 0
     start: 1780
     end: 1899
     bbox: [1290, 228, 1348, 342]
@@ -24875,6 +25080,7 @@
         1899: *id4729
 206:
     subject_id: 24
+    category: 0
     start: 1780
     end: 1894
     bbox: [1614, 421, 1696, 554]
@@ -24996,6 +25202,7 @@
         1894: *id4752
 207:
     subject_id: 6
+    category: 0
     start: 1780
     end: 1884
     bbox: [64, 325, 143, 447]
@@ -25107,6 +25314,7 @@
         1884: *id4773
 208:
     subject_id: 36
+    category: 0
     start: 1785
     end: 1884
     bbox: [1641, 351, 1702, 438]
@@ -25213,6 +25421,7 @@
         1884: *id4793
 209:
     subject_id: 8
+    category: 0
     start: 1785
     end: 1904
     bbox: [247, 369, 311, 485]
@@ -25339,6 +25548,7 @@
         1904: *id4817
 210:
     subject_id: 18
+    category: 0
     start: 1795
     end: 1894
     bbox: [364, 249, 405, 362]
@@ -25445,6 +25655,7 @@
         1894: *id4837
 211:
     subject_id: 5
+    category: 0
     start: 1840
     end: 1884
     bbox: [1546, 733, 1656, 924]
@@ -25496,6 +25707,7 @@
         1884: *id4846
 212:
     subject_id: 5
+    category: 0
     start: 1940
     end: 2179
     bbox: [1511, 786, 1656, 982]
@@ -25742,6 +25954,7 @@
         2179: *id4894
 213:
     subject_id: 3
+    category: 0
     start: 1940
     end: 2299
     bbox: [128, 661, 261, 792]
@@ -26108,6 +26321,7 @@
         2299: *id4966
 214:
     subject_id: 7
+    category: 0
     start: 1940
     end: 2129
     bbox: [154, 343, 245, 467]
@@ -26304,6 +26518,7 @@
         2129: *id5004
 215:
     subject_id: 10
+    category: 0
     start: 1940
     end: 2324
     bbox: [551, 455, 645, 599]
@@ -26695,6 +26910,7 @@
         2324: *id5081
 216:
     subject_id: 11
+    category: 0
     start: 1940
     end: 2209
     bbox: [895, 467, 980, 635]
@@ -26971,6 +27187,7 @@
         2209: *id5135
 217:
     subject_id: 12
+    category: 0
     start: 1940
     end: 2149
     bbox: [1162, 459, 1242, 653]
@@ -27187,6 +27404,7 @@
         2149: *id5177
 218:
     subject_id: 13
+    category: 0
     start: 1940
     end: 2184
     bbox: [1444, 489, 1535, 664]
@@ -27438,6 +27656,7 @@
         2184: *id5226
 219:
     subject_id: 19
+    category: 0
     start: 1940
     end: 2319
     bbox: [493, 191, 589, 361]
@@ -27824,6 +28043,7 @@
         2319: *id5302
 220:
     subject_id: 21
+    category: 0
     start: 1940
     end: 2324
     bbox: [965, 261, 1044, 414]
@@ -28215,6 +28435,7 @@
         2324: *id5379
 221:
     subject_id: 22
+    category: 0
     start: 1940
     end: 2324
     bbox: [1130, 306, 1210, 457]
@@ -28606,6 +28827,7 @@
         2324: *id5456
 222:
     subject_id: 28
+    category: 0
     start: 1940
     end: 2054
     bbox: [392, 181, 441, 261]
@@ -28727,6 +28949,7 @@
         2054: *id5479
 223:
     subject_id: 31
+    category: 0
     start: 1940
     end: 2319
     bbox: [728, 150, 800, 277]
@@ -29113,6 +29336,7 @@
         2319: *id5555
 224:
     subject_id: 33
+    category: 0
     start: 1940
     end: 2329
     bbox: [1210, 187, 1273, 301]
@@ -29509,6 +29733,7 @@
         2329: *id5633
 225:
     subject_id: 9
+    category: 0
     start: 1945
     end: 2344
     bbox: [269, 344, 384, 554]
@@ -29915,6 +30140,7 @@
         2344: *id5713
 226:
     subject_id: 18
+    category: 0
     start: 1945
     end: 2219
     bbox: [352, 255, 405, 385]
@@ -30196,6 +30422,7 @@
         2219: *id5768
 227:
     subject_id: 24
+    category: 0
     start: 1945
     end: 2319
     bbox: [1594, 368, 1744, 552]
@@ -30577,6 +30804,7 @@
         2319: *id5843
 228:
     subject_id: 15
+    category: 0
     start: 1945
     end: 2139
     bbox: [1743, 526, 1843, 658]
@@ -30778,6 +31006,7 @@
         2139: *id5882
 229:
     subject_id: 14
+    category: 0
     start: 1945
     end: 2129
     bbox: [1615, 524, 1726, 671]
@@ -30969,6 +31198,7 @@
         2129: *id5919
 230:
     subject_id: 32
+    category: 0
     start: 1945
     end: 2324
     bbox: [970, 130, 1039, 264]
@@ -31355,6 +31585,7 @@
         2324: *id5995
 231:
     subject_id: 25
+    category: 0
     start: 1950
     end: 2044
     bbox: [1700, 415, 1778, 536]
@@ -31456,6 +31687,7 @@
         2044: *id6014
 232:
     subject_id: 34
+    category: 0
     start: 1950
     end: 2339
     bbox: [1278, 221, 1343, 345]
@@ -31852,6 +32084,7 @@
         2339: *id6092
 233:
     subject_id: 30
+    category: 0
     start: 1950
     end: 2054
     bbox: [598, 131, 668, 258]
@@ -31963,6 +32196,7 @@
         2054: *id6113
 234:
     subject_id: 29
+    category: 0
     start: 1950
     end: 2144
     bbox: [498, 176, 549, 290]
@@ -32164,6 +32398,7 @@
         2144: *id6152
 235:
     subject_id: 17
+    category: 0
     start: 1950
     end: 2329
     bbox: [257, 237, 320, 365]
@@ -32550,6 +32785,7 @@
         2329: *id6228
 236:
     subject_id: 4
+    category: 0
     start: 1955
     end: 2224
     bbox: [635, 728, 718, 900]
@@ -32826,6 +33062,7 @@
         2224: *id6282
 237:
     subject_id: 8
+    category: 0
     start: 1955
     end: 2354
     bbox: [239, 374, 314, 498]
@@ -33232,6 +33469,7 @@
         2354: *id6362
 238:
     subject_id: 6
+    category: 0
     start: 1955
     end: 2324
     bbox: [70, 323, 144, 462]
@@ -33608,6 +33846,7 @@
         2324: *id6436
 239:
     subject_id: 23
+    category: 0
     start: 1960
     end: 2324
     bbox: [1298, 314, 1386, 478]
@@ -33979,6 +34218,7 @@
         2324: *id6509
 240:
     subject_id: 26
+    category: 0
     start: 1960
     end: 2099
     bbox: [301, 115, 357, 220]
@@ -34125,6 +34365,7 @@
         2099: *id6537
 241:
     subject_id: 16
+    category: 0
     start: 1970
     end: 2034
     bbox: [184, 245, 238, 331]
@@ -34196,6 +34437,7 @@
         2034: *id6550
 242:
     subject_id: 27
+    category: 0
     start: 1975
     end: 2169
     bbox: [345, 116, 405, 221]
@@ -34397,6 +34639,7 @@
         2169: *id6589
 243:
     subject_id: 20
+    category: 0
     start: 1995
     end: 2249
     bbox: [678, 217, 738, 355]
@@ -34658,6 +34901,7 @@
         2249: *id6640
 244:
     subject_id: 35
+    category: 0
     start: 2045
     end: 2339
     bbox: [1591, 330, 1632, 417]
@@ -34959,6 +35203,7 @@
         2339: *id6699
 245:
     subject_id: 16
+    category: 0
     start: 2055
     end: 2084
     bbox: [183, 257, 227, 341]
@@ -34995,6 +35240,7 @@
         2084: *id6705
 246:
     subject_id: 30
+    category: 0
     start: 2070
     end: 2104
     bbox: [586, 200, 646, 292]
@@ -35036,6 +35282,7 @@
         2104: *id6712
 247:
     subject_id: 26
+    category: 0
     start: 2130
     end: 2174
     bbox: [260, 114, 311, 207]
@@ -35087,6 +35334,7 @@
         2174: *id6721
 248:
     subject_id: 7
+    category: 0
     start: 2160
     end: 2174
     bbox: [160, 351, 245, 471]
@@ -35108,6 +35356,7 @@
         2174: *id6724
 249:
     subject_id: 27
+    category: 0
     start: 2175
     end: 2179
     bbox: [337, 168, 402, 223]
@@ -35119,6 +35368,7 @@
         2179: *id6725
 250:
     subject_id: 26
+    category: 0
     start: 2180
     end: 2319
     bbox: [274, 100, 337, 213]
@@ -35265,6 +35515,7 @@
         2319: *id6753
 251:
     subject_id: 15
+    category: 0
     start: 2180
     end: 2294
     bbox: [1728, 536, 1826, 688]
@@ -35386,6 +35637,7 @@
         2294: *id6776
 252:
     subject_id: 5
+    category: 0
     start: 2220
     end: 2329
     bbox: [1512, 830, 1641, 981]
@@ -35502,6 +35754,7 @@
         2329: *id6798
 253:
     subject_id: 13
+    category: 0
     start: 2230
     end: 2334
     bbox: [1439, 544, 1525, 679]
@@ -35613,6 +35866,7 @@
         2334: *id6819
 254:
     subject_id: 36
+    category: 0
     start: 2235
     end: 2314
     bbox: [1638, 354, 1702, 434]
@@ -35699,6 +35953,7 @@
         2314: *id6835
 255:
     subject_id: 4
+    category: 0
     start: 2245
     end: 2319
     bbox: [656, 740, 722, 899]
@@ -35780,6 +36035,7 @@
         2319: *id6850
 256:
     subject_id: 20
+    category: 0
     start: 2260
     end: 2324
     bbox: [663, 234, 748, 389]
@@ -35851,6 +36107,7 @@
         2324: *id6863
 257:
     subject_id: 7
+    category: 0
     start: 2280
     end: 2314
     bbox: [181, 370, 257, 467]
@@ -35892,6 +36149,7 @@
         2314: *id6870
 258:
     subject_id: 28
+    category: 0
     start: 2280
     end: 2319
     bbox: [382, 213, 445, 287]
@@ -35938,6 +36196,7 @@
         2319: *id6878
 259:
     subject_id: 15
+    category: 0
     start: 2305
     end: 2314
     bbox: [1735, 606, 1822, 675]

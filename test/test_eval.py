@@ -1,8 +1,11 @@
 import json
-import numpy as np
 from collections.abc import Sequence
+
+import numpy as np
+import pandas as pd
 from tqdm import tqdm
-from evaluation._metrics import *
+
+from evaluation.object_detection_metrics import *
 
 
 def load_coco(coco_file):
@@ -34,7 +37,7 @@ def xywh2xyxy(bbox):
 
 def main():
     gt_file = 'D:/code/benefactor/phuongdung/ground_truth/ground_truth.json'
-    det_file = 'D:/code/benefactor/phuongdung/detections_dung/out_dung.json'
+    det_file = 'D:/code/benefactor/phuongdung/detections_nhat/out_nhat.json'
 
     gt_coco = load_coco(gt_file)
     det_coco = load_coco(det_file)
@@ -102,36 +105,49 @@ def main():
     # compute statistics
     n_imgs_per_class = np.array([np.sum([np.any(_[3] == cls) for _ in stats]) for cls in range(len(classes))])
 
-    stats = [np.concatenate(_, 0) for _ in zip(*stats)]
-    print(stats[0].shape)
-    if len(stats) and stats[0].any():
-        p, r, ap, f1 = ap_per_class(*stats, plot=False, save_dir='.', names=classes)
-        print(ap.shape)
-        ap50, ap75, ap = ap[:, 0], ap[:, 5], ap.mean(1)  # AP@0.5, AP@0.5:0.95
-        mp, mr, mf1, map50, map75, map = p.mean(), r.mean(), f1.mean(), ap50.mean(), ap75.mean(), ap.mean()
-        n_gts_per_class = np.bincount(stats[3].astype(np.int64), minlength=len(classes))  # number of gts per class
-        n_dets_per_class = np.bincount(stats[2].astype(np.int64), minlength=len(classes))  # number of dets per class
+    correct, confs, det_classes, gt_classes = [np.concatenate(_, axis=0) for _ in zip(*stats)]
+    if correct.any():
+        ap, p, r, f1 = ap_per_class(correct, confs, det_classes, gt_classes,
+                                    plot=False, save_dir='.', names=classes)
+        print(ap.shape, p.shape)
+        ap_50 = ap[:, 0]  # AP@0.5
+        ap_75 = ap[:, 5]  # AP@0.75
+        ap_ = ap.mean(1)  # AP@0.5:0.95
+        n_gts_per_class = np.bincount(gt_classes.astype(np.int64), minlength=len(classes))  # number of gts per class
+        n_dets_per_class = np.bincount(det_classes.astype(np.int64), minlength=len(classes))  # number of dets per class
     else:
-        p = r = f1 = ap50 = ap75 = ap = mp = mr = mf1 = map50 = map75 = map = 0.0
+        p = r = f1 = ap_50 = ap_75 = ap_ = 0.0
         n_gts_per_class = np.zeros(1)
         n_dets_per_class = np.zeros(1)
 
+    results = {
+        'Class': ['all'],
+        '#Images': [len(gt_coco['images'])],
+        '#GTs': [n_gts_per_class.sum()],
+        '#Dets': [n_dets_per_class.sum()],
+        'P': [p.mean()],
+        'R': [r.mean()],
+        'F1': [f1.mean()],
+        'mAP@0.5': [ap_50.mean()],
+        'mAP@0.75': [ap_75.mean()],
+        'mAP@0.5:0.95': [ap_.mean()],
+    }
+    for i in range(len(classes)):
+        for col, val in zip(list(results.keys()), [
+            classes, n_imgs_per_class, n_gts_per_class, n_dets_per_class,
+            p, r, f1, ap_50, ap_75, ap_,
+        ]):
+            results[col].append(val[i])
+
     # Print results
-    print(('{:>20}' + '{:>12}' * 9).format('Class', '#Images', '#GTs', '#Dets',
-                                           'P', 'R', 'F1',
-                                           'mAP@.5', 'mAP@.75', 'mAP@.5:.95'))
-
-    pf = '{:>20}' + '{:>12d}' * 3 + '{:>12.4f}' * 6  # print format
-    print(pf.format('all', len(gt_coco['images']), n_gts_per_class.sum(), n_dets_per_class.sum(),
-                    mp, mr, mf1, map50, map75, map))
-
-    # Print results per class
-    if len(stats):
-        for i in range(len(classes)):
-            print(pf.format(classes[i], n_imgs_per_class[i], n_gts_per_class[i], n_dets_per_class[i],
-                            p[i], r[i], f1[i], ap50[i], ap75[i], ap[i]))
-
+    pd.options.display.float_format = '{:,.4f}'.format
+    pd.set_option('display.max_rows', None)
+    pd.set_option('display.max_columns', None)
+    pd.set_option('display.width', None)
+    pd.set_option('display.max_colwidth', None)
+    print(pd.DataFrame(results).to_string(index=False))
     print()
+
     print('Confusion matrix')
     print(cm.matrix)
 

@@ -49,6 +49,7 @@ def main():
                 track_id = len(tracklets) + 1
                 tracklets[track_id] = {
                     'subject_id': subject_id,
+                    'category': 0,
                     'start': frame_id * sampling_rate,
                     'end': (frame_id + 1) * sampling_rate - 1,
                     'bbox': None,

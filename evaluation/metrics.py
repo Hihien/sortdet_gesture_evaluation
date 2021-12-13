@@ -167,22 +167,69 @@ def stt_iou(pred, gt, eps=1e-6):
     if frame_start > frame_end:
         return 0
 
-    ious = []
+    tube_intersection = 0
+    tube_union = eps
     for frame_id in range(min(pred['start'], gt['start']), max(pred['end'], gt['end'])):
-        if ((frame_id not in pred['frames'].keys() or pred['frames'][frame_id] is None)
-                or (frame_id not in gt['frames'].keys() or gt['frames'][frame_id] is None)):
-            ious.append(0)
-            continue
-        bbox_pred = pred['frames'][frame_id]
-        bbox_gt = gt['frames'][frame_id]
+        bbox_pred = bbox_gt = None
+        if frame_id in pred['frames'].keys() and pred['frames'][frame_id] is not None:
+            bbox_pred = pred['frames'][frame_id]
+        if frame_id in gt['frames'].keys() and gt['frames'][frame_id] is not None:
+            bbox_gt = gt['frames'][frame_id]
 
-        area_pred = (bbox_pred[2] - bbox_pred[0]) * (bbox_pred[3] - bbox_pred[1])
-        area_gt = (bbox_gt[2] - bbox_gt[0]) * (bbox_gt[3] - bbox_gt[1])
-        x_start = max(bbox_pred[0], bbox_gt[0])
-        y_start = max(bbox_pred[1], bbox_gt[1])
-        x_end = min(bbox_pred[2], bbox_gt[2])
-        y_end = min(bbox_pred[3], bbox_gt[3])
-        overlap = max(x_end - x_start, 0) * max(y_end - y_start, 0)
-        union = max(area_pred + area_gt - overlap, eps)
-        ious.append(overlap / union)
-    return np.array(ious)
+        area_pred = (bbox_pred[2] - bbox_pred[0]) * (bbox_pred[3] - bbox_pred[1]) if bbox_pred is not None else 0
+        area_gt = (bbox_gt[2] - bbox_gt[0]) * (bbox_gt[3] - bbox_gt[1]) if bbox_gt is not None else 0
+
+        if bbox_pred is not None and bbox_gt is not None:
+            x_start = max(bbox_pred[0], bbox_gt[0])
+            y_start = max(bbox_pred[1], bbox_gt[1])
+            x_end = min(bbox_pred[2], bbox_gt[2])
+            y_end = min(bbox_pred[3], bbox_gt[3])
+            intersection = max(x_end - x_start, 0) * max(y_end - y_start, 0)
+        else:
+            intersection = 0
+        union = area_pred + area_gt - intersection
+
+        tube_intersection += intersection
+        tube_union += union
+    return tube_intersection / tube_union
+
+
+def sts_iou(pred, gt, eps=1e-6):
+    frame_start = max(pred['start'], gt['start'])
+    frame_end = min(pred['end'], gt['end'])
+    if frame_start > frame_end:
+        return 0, 0
+
+    tube_intersection = spatial_intersection = 0
+    tube_union = spatial_union = eps
+    for frame_id in range(min(pred['start'], gt['start']), max(pred['end'], gt['end'])):
+        bbox_pred = bbox_gt = None
+        if frame_id in pred['frames'].keys() and pred['frames'][frame_id] is not None:
+            bbox_pred = pred['frames'][frame_id]
+        if frame_id in gt['frames'].keys() and gt['frames'][frame_id] is not None:
+            bbox_gt = gt['frames'][frame_id]
+        if bbox_pred is None or bbox_gt is None:
+            continue
+
+        area_pred = (bbox_pred[2] - bbox_pred[0]) * (bbox_pred[3] - bbox_pred[1]) if bbox_pred is not None else 0
+        area_gt = (bbox_gt[2] - bbox_gt[0]) * (bbox_gt[3] - bbox_gt[1]) if bbox_gt is not None else 0
+
+        if bbox_pred is not None and bbox_gt is not None:
+            x_start = max(bbox_pred[0], bbox_gt[0])
+            y_start = max(bbox_pred[1], bbox_gt[1])
+            x_end = min(bbox_pred[2], bbox_gt[2])
+            y_end = min(bbox_pred[3], bbox_gt[3])
+            intersection = max(x_end - x_start, 0) * max(y_end - y_start, 0)
+        else:
+            intersection = 0
+        union = area_pred + area_gt - intersection
+
+        tube_intersection += intersection
+        tube_union += union
+        if area_pred and area_gt:
+            spatial_intersection += intersection
+            spatial_union += union
+    spatio_temporal_iou = tube_intersection / tube_union
+    spatial_iou = spatial_intersection / spatial_union
+    temporal_iou = temporal_IoU(pred, gt, eps)
+    return spatio_temporal_iou, spatial_iou, temporal_iou
